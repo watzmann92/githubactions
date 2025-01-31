@@ -1,0 +1,31 @@
+name: GitHub Actions Demo
+on: push
+jobs:
+   Example-Action-Job:
+      name: Exploring GitHub Actions
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "The job was triggered by a ${{github.event_name}} event"
+        
+        - run: echo "This job is running on ${{runner.os}} server hosted by GitHub"
+        
+        - name: check out repo code
+          uses: actions/checkout@v2
+
+        - name: list files in repo
+          run: ls ${{github.workspace}}
+
+        - name: setup dotnet on runner
+          uses: actions/setup-dotnet@v1
+          with:
+             dotnet-version: '3.x'
+
+        - name: display dotnet version
+          run: dotnet --version
+
+        - name: list files in tool cache
+          run: ls ${{runner.tool_cache}}
+
+        - name: echo "This job status is ${{job.status}}"
+        
+        
