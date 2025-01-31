@@ -26,6 +26,6 @@ jobs:
         - name: list files in tool cache
           run: ls ${{runner.tool_cache}}
 
-        - name: echo "This job status is ${{job.status}}"
+        - run: echo "This job status is ${{job.status}}"
         
         
